@@ -3,7 +3,7 @@ Spree Ajax Cart
 
 This is a basic implementation of an Ajax shopping cart for Spree (tested on 0.40 and 0.50.99/edge). To install, add the extension to your Gemfile:
 
-    gem 'spree_ajax_cart', :git => 'git://github.com/pogodan/spree_ajax_cart.git'
+    gem 'spree_ajax_cart', :git => 'git://github.com/pogodan/spree_ajax_cart'
 
 And `bundle install`, then:
 
