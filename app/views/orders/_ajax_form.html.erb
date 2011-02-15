@@ -1,0 +1,36 @@
+<%= form_for order, :url => update_cart_path, :remote => true, :html=>{:id=>'updatecart'} do |order_form| %>
+  <table>
+    <thead>
+      <tr>
+        <th><%= t("item")  %>
+        <th><%= t("price") %>
+        <th><%= t("qty")   %>
+        <th>-</td>
+    <tbody class="line_items">
+      <%= order_form.fields_for :line_items do |item_form| %>
+        <%- line_item = item_form.object %>
+        <tr>
+          <td>
+            <%= link_to line_item.product.name, line_item.product %>
+          <td>
+            <%= number_to_currency line_item.price %>
+          <td>
+            <%= item_form.text_field :quantity, :size => 3, :class => "line_item_quantity" %>
+          <td>
+            <%= link_to image_tag('/images/ajax_cart/delete.png'), '#', :class => 'delete' %>
+          </td>
+        </tr>
+      <% end %>
+      
+      <tr>
+        <td>
+          <%= order_form.submit 'Update cart' %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+<div class=".total">
+  <%= link_to_cart(t('total')) %>
+</div>
