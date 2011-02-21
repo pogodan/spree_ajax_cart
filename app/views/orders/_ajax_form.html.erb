@@ -27,7 +27,7 @@
           <%= order_form.submit 'Update cart' %>
         </td>
         <td>
-          <%= button_to 'Checkout', checkout_path %>
+          <%= button_to 'Checkout', {}, :onclick => "window.location = '#{cart_path}';" %>
         </td>
       </tr>
     </tbody>
